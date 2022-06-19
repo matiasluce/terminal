@@ -1,12 +1,12 @@
 {
-	"results": [
-		"en": {
+	"lang": [
+		{
 			"intro": "Type 'help' to see list of available commands.",
 			"help": ["Available commands:","help, about, projects, clear"],
 			"about": ["My name is Matías Lucero, I\'m a full-stack developer from Argentina.","Visit my Github profile to see my projects (https://github.com/matiasluce/)."],
 			"projects": ["Projects:","Monster Energy Website: https://github.com/matiasluce/monster-web/","Studio Ghibli Films: https://github.com/matiasluce/ghibli-api"]
 		},
-		"es": {
+		{
 			"intro": "Usa 'help' para conocer la lista de comandos disponibles.",
 			"help": ["Comandos disponibles:","help, about, projects, clear"],
 			"about": ["Mi nombre es Matías Lucero, Soy un programador full-stack de Argentina.","Visita mi perfil de Github para ver mis projectos más recientes (https://github.com/matiasluce/)."],

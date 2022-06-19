@@ -13,6 +13,8 @@ let projects = "";
 
 function fetchData(){
   fetch(url).then(response => response.json()).then(data => {
+                  data.trim();
+                  JSON.parse(data);
                   intro = data.results.en.intro;
                   help = data.results.en.help;
                   about = data.results.en.about;
