@@ -4,8 +4,29 @@ let prefix = 'matlu@user ~ $ ';
 let keywords = new Array("help","about","projects","clear");
 let es = document.querySelector('.es');
 let en = document.querySelector('.en');
+const url = "https://raw.githubusercontent.com/matiasluce/terminal/main/data/lang.json";
+
+let intro = "";
+let help = "";
+let about = "";
+let projects = "";
+
+function fetchData(){
+  fetch(url).then(response => response.json()).then(data => {
+                  intro = data.en.intro;
+                  help = data.en.help;
+                  about = data.en.about;
+                  projects = data.en.projects;  
+                  console.log(data);       
+  })
+  .catch(err => console.log(err));
+}
+
+fetchData();
 
 
+
+/*
 let intro = "Type 'help' to see list of available commands."
 
 let help = [
@@ -22,7 +43,7 @@ let projects = [
   'Projects:',
   'Monster Energy Website: https://github.com/matiasluce/monster-web/',
   'Studio Ghibli Films: https://github.com/matiasluce/ghibli-api'
-]
+]*/
 
 // Hacer boton EN / ESP y desde un Json traer los textos según el idioma elegido.
 
