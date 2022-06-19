@@ -13,12 +13,10 @@ let projects = "";
 
 function fetchData(){
   fetch(url).then(response => response.json()).then(data => {
-                  data.trim();
-                  JSON.parse(data);
-                  intro = data.results.en.intro;
-                  help = data.results.en.help;
-                  about = data.results.en.about;
-                  projects = data.results.en.projects;  
+                  intro = data[0].intro;
+                  help = data[0].help;
+                  about = data[0].about;
+                  projects = data[0].projects;  
                   console.log(data);       
   })
   .catch(err => console.log(err));
