@@ -5,24 +5,46 @@ let keywords = new Array("help","about","projects","clear");
 let es = document.querySelector('.es');
 let en = document.querySelector('.en');
 const url = "https://raw.githubusercontent.com/matiasluce/terminal/main/data/lang.json";
+let idioma = 'en';
 
-let intro = "";
-let help = "";
-let about = "";
-let projects = "";
-
-function fetchData(){
-  fetch(url).then(response => response.json()).then(data => {
-                  console.log(data);       
-  })
-  .catch(err => console.log(err));
+const opt = {
+	"lang": [
+	{
+		"intro": "Type 'help' to see list of available commands.",
+		"help": [
+		"Available commands:",
+		"help, about, projects, clear"
+		],
+		"about": ["My name is Matías Lucero, Im a full-stack developer from Argentina.","Visit my Github profile to see my projects (https://github.com/matiasluce/)."],
+		"projects": ["Projects:","Monster Energy Website: https://github.com/matiasluce/monster-web/","Studio Ghibli Films: https://github.com/matiasluce/ghibli-api"]
+	},
+	{
+		"intro": "Usa 'help' para conocer la lista de comandos disponibles.",
+		"help": ["Comandos disponibles:","help, about, projects, clear"],
+		"about": ["Mi nombre es Matías Lucero, Soy un programador full-stack de Argentina.","Visita mi perfil de Github para ver mis projectos más recientes (https://github.com/matiasluce/)."],
+		"projects": ["Proyectos:","Monster Energy Website: https://github.com/matiasluce/monster-web/","Studio Ghibli Films: https://github.com/matiasluce/ghibli-api"]
+	}
+	]
 }
 
-fetchData();
 
 
 
-/*
+function init(){
+  commands.innerHTML = "<p>" + intro + "</p><br>";
+  console.log(intro);
+
+  if(idioma == 'en'){
+    en.classList.add("activo");
+    es.classList.remove("activo");
+  }
+  else{
+    es.classList.add("activo");
+    en.classList.remove("activo");
+  }
+}
+
+
 let intro = "Type 'help' to see list of available commands."
 
 let help = [
@@ -39,9 +61,7 @@ let projects = [
   'Projects:',
   'Monster Energy Website: https://github.com/matiasluce/monster-web/',
   'Studio Ghibli Films: https://github.com/matiasluce/ghibli-api'
-]*/
-
-// Hacer boton EN / ESP y desde un Json traer los textos según el idioma elegido.
+]
 
 function resetInput(){
   input.value = '';
@@ -51,9 +71,27 @@ function clearScreen(){
   commands.innerHTML = "";
 }
 
-function init(){
-  commands.innerHTML = "<p>" + intro + "</p><br>"
+function changeLang(l){
+  if(l == 'es'){
+    intro = opt.lang[1].intro;
+    help = opt.lang[1].help;
+    about = opt.lang[1].about;
+    projects = opt.lang[1].projects;
+    idioma = 'es';
+  }
+  else{
+    intro = opt.lang[0].intro;
+    help = opt.lang[0].help;
+    about = opt.lang[0].about;
+    projects = opt.lang[0].projects;
+    idioma = 'en';
+  }
+
+  clearScreen();
+  init();
 }
+
+
 
 input.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -87,11 +125,11 @@ input.addEventListener('keypress', function (e) {
 });
 
 en.addEventListener('click', function(e){
-  alert("Idioma inglés");
+  changeLang('en');
 });
 
 es.addEventListener('click', function(e){
-  alert("Idioma español");
+  changeLang('es');
 });
 
 init();
