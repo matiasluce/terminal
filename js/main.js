@@ -6,12 +6,12 @@ let es = document.querySelector('.es');
 let en = document.querySelector('.en');
 
 
+let intro = "Type 'help' to see list of available commands."
+
 let help = [
     'Available commands:',
     'help, about, projects, clear'
 ]
-
-// Hacer boton EN / ESP y desde un Json traer los textos según el idioma elegido.
 
 let about = [
   'My name is Matías Lucero, I\'m a full-stack developer from Argentina.',
@@ -24,12 +24,18 @@ let projects = [
   'Studio Ghibli Films: https://github.com/matiasluce/ghibli-api'
 ]
 
+// Hacer boton EN / ESP y desde un Json traer los textos según el idioma elegido.
+
 function resetInput(){
   input.value = '';
 }
 
 function clearScreen(){
   commands.innerHTML = "";
+}
+
+function init(){
+  commands.innerHTML = "<p>" + intro + "</p><br>"
 }
 
 input.addEventListener('keypress', function (e) {
@@ -70,3 +76,5 @@ en.addEventListener('click', function(e){
 es.addEventListener('click', function(e){
   alert("Idioma español");
 });
+
+init();
