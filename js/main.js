@@ -1,12 +1,17 @@
 let input  = document.getElementById("inputc");
 let commands = document.getElementById("commands");
-let prefix = 'matlu@user ~ $ '
-let mtab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+let prefix = 'matlu@user ~ $ ';
+let keywords = new Array("help","about","projects","clear");
+let es = document.querySelector('.es');
+let en = document.querySelector('.en');
+
 
 let help = [
     'Available commands:',
     'help, about, projects, clear'
 ]
+
+// Hacer boton EN / ESP y desde un Json traer los textos según el idioma elegido.
 
 let about = [
   'My name is Matías Lucero, I\'m a full-stack developer from Argentina.',
@@ -46,7 +51,7 @@ input.addEventListener('keypress', function (e) {
           } break;
         case 'clear':
           clearScreen(); break;
-        default: s+="<p>Comando incorrecto, digite help para conocer los comandos disponibles.</p>";
+        default: input.value != "" ? s+="<p>Comando incorrecto, digite help para conocer los comandos disponibles.</p>" : '';
       }
 
       s+="<br></div>";
@@ -56,4 +61,12 @@ input.addEventListener('keypress', function (e) {
       resetInput();
       
     }
+});
+
+en.addEventListener('click', function(e){
+  alert("Idioma inglés");
+});
+
+es.addEventListener('click', function(e){
+  alert("Idioma español");
 });
