@@ -44,7 +44,6 @@ function init(){
   }
 }
 
-
 let intro = "Type 'help' to see list of available commands."
 
 let help = [
@@ -125,11 +124,15 @@ input.addEventListener('keypress', function (e) {
 });
 
 en.addEventListener('click', function(e){
-  changeLang('en');
+  if(idioma != 'en'){
+    changeLang('en');
+  }
 });
 
 es.addEventListener('click', function(e){
-  changeLang('es');
+  if(idioma != 'es'){
+    changeLang('es');
+  }
 });
 
 init();
