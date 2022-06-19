@@ -1,3 +1,8 @@
+:root{
+    --bg-color: #5F7161;
+    --t-color: #EFEAD8;
+    --font: 'Roboto Mono', monospace;
+}
 *{
     margin: 0;
     padding: 0;
@@ -6,11 +11,26 @@
 
 body{
     margin: 20px;
+    font-family: var(--font);
+    font-weight: 400;
+    background-color: var(--bg-color);
+    color: var(--t-color);
 }
 
 .prefijo{
-    color: green;
+    color: #9EB23B;
 }
-p{
-    tab-size: 8;
+
+#inputc{
+    border:none;
+    background: none;
+    color: var(--t-color);
+    font-family: var(--font);
+    font-size: 16px;
 }
+
+#inputc:focus{
+    outline-style: none;
+}
+
+

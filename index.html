@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <title>MyTerminal</title>
-    <link rel="stylesheet" href="./css/style.css">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <main>
-        <div id="commands">
-            <p>Type 'help' to see list of available commands.</p>
-        </div>
-        <input type="text" id="inputc">
-
+      <div id="commands">
+        <p>Type 'help' to see list of available commands.</p>
+      </div>
+      <div class="input-container">
+        <span class='prefijo'>matlu@user ~ $ </span><input tabindex="1" type="text" id="inputc" />
+      </div>
+      
     </main>
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
